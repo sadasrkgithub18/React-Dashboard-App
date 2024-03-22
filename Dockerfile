@@ -1,5 +1,5 @@
 # Use an existing Node.js image as the base image
-FROM node:18.16.1-alpine
+FROM node:latest
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -8,7 +8,8 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install -g npm@latest
+RUN npm install react-scripts
 
 # Copy the rest of the application code
 COPY . .
